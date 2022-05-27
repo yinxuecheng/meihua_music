@@ -23,7 +23,7 @@ RUN apk add --update --no-cache openjdk8-jre-base \
 
 WORKDIR /app
 
-COPY --from=build /app/target/meihua_music-0.0.1.jar .
+COPY --from=build /app/target/meihua_music-1.0-SNAPSHOT.jar .
 
 EXPOSE 80
 
