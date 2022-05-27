@@ -27,4 +27,4 @@ COPY --from=build /app/target/meihua_music-0.0.1.jar .
 
 EXPOSE 80
 
-CMD ["java","-jar","/app/meihua_music-0.0.1.jar"]
+CMD ["java","-jar","/app/meihua_music-1.0-SNAPSHOT.jar"]
