@@ -13,10 +13,15 @@ COPY pom.xml /app/
 
 # 执行代码编译命令
 # 自定义settings.xml, 选用国内镜像源以提高下载速度
-RUN mvn -s /app/settings.xml -f /app/pom.xml clean package
+RUN mvn -s /app/pom.xml clean package
 
 # 选择运行时基础镜像
 FROM alpine:3.13
+
+ENV MYSQL_HOST 180.76.100.99
+ENV MYSQL_USERNAME root
+ENV MYSQL_PASSWORD 1234
+ENV DATABASE_NAME meihua-music
 
 # 容器默认时区为UTC，如需使用上海时间请启用以下时区设置命令
 # RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
