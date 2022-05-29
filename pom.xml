@@ -14,6 +14,8 @@
     <groupId>com.meihua</groupId>
     <artifactId>meihua_music</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>meihua_music</name>
     <description>梅花音乐</description>
 
