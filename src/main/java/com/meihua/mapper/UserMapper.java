@@ -1,5 +1,6 @@
 package com.meihua.mapper;
 
+import com.meihua.dto.UserCreateDto;
 import com.meihua.dto.UserDto;
 import com.meihua.entity.User;
 import com.meihua.vo.UserVo;
@@ -13,4 +14,6 @@ public interface UserMapper {
     UserDto toDto(User user);
 
     UserVo toVo(UserDto userDto);
+
+    User createEntity(UserCreateDto userCreateDto);
 }

@@ -2,6 +2,8 @@ package com.meihua.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -9,7 +11,7 @@ import org.springframework.web.filter.CorsFilter;
 @SpringBootConfiguration
 public class WebGlobalConfig {
 
-    @Bean
+//    @Bean
     public CorsFilter corsFilter() {
 
         //创建CorsConfiguration对象后添加配置
@@ -36,5 +38,10 @@ public class WebGlobalConfig {
         corsConfigurationSource.registerCorsConfiguration("/**", config);
         //返回CorsFilter
         return new CorsFilter(corsConfigurationSource);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }
