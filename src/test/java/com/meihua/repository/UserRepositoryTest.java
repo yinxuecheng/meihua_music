@@ -30,7 +30,7 @@ class UserRepositoryTest {
 //        user.setLastLoginTime(new Date());
 //        User save = userRepository.save(user);
 //        System.out.println(save.toString());
-        User aaa = userRepository.getByUsername("小新");
-        System.out.println(aaa.toString());
+//        User aaa = userRepository.getByUsername("小新");
+//        System.out.println(aaa.toString());
     }
 }
