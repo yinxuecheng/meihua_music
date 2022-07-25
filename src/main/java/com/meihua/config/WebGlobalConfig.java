@@ -2,42 +2,44 @@ package com.meihua.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@SpringBootConfiguration
+@Configuration
 public class WebGlobalConfig {
 
-//    @Bean
+    @Bean
     public CorsFilter corsFilter() {
 
-        //创建CorsConfiguration对象后添加配置
+        //1.添加CORS配置信息
         CorsConfiguration config = new CorsConfiguration();
-        //设置放行哪些原始域
+        //放行哪些原始域
         config.addAllowedOrigin("*");
-        //放行哪些原始请求头部信息
-        config.addAllowedHeader("*");
-        //暴露哪些头部信息
-//        config.addExposedHeader("*");
-        //放行哪些请求方式
-        config.addAllowedMethod("GET");     //get
-        config.addAllowedMethod("PUT");     //put
-        config.addAllowedMethod("POST");    //post
-        config.addAllowedMethod("DELETE");  //delete
-//        corsConfig.addAllowedMethod("*");     //放行全部请求
-
-        //是否发送Cookie
+        //是否发送Cookie信息
         config.setAllowCredentials(true);
+        //放行哪些原始域(请求方式)
+        config.addAllowedMethod("*");
+        //放行哪些原始域(头部信息)
+        config.addAllowedHeader("*");
+        //暴露哪些头部信息（因为跨域访问默认不能获取全部头部信息）
+        config.addExposedHeader("Content-Type");
+        config.addExposedHeader( "X-Requested-With");
+        config.addExposedHeader("accept");
+        config.addExposedHeader("Origin");
+        config.addExposedHeader( "Access-Control-Request-Method");
+        config.addExposedHeader("Access-Control-Request-Headers");
+        config.addExposedHeader("Authorization");
 
-        //2. 添加映射路径
-        UrlBasedCorsConfigurationSource corsConfigurationSource =
-                new UrlBasedCorsConfigurationSource();
-        corsConfigurationSource.registerCorsConfiguration("/**", config);
-        //返回CorsFilter
-        return new CorsFilter(corsConfigurationSource);
+        //2.添加映射路径
+        UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();
+        configSource.registerCorsConfiguration("/**", config);
+
+        //3.返回新的CorsFilter.
+        return new CorsFilter(configSource);
     }
 
     @Bean
