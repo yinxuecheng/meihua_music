@@ -1,8 +1,9 @@
 package com.meihua.dto;
 
-import com.meihua.vo.RoleVo;
+import com.meihua.enums.Gender;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -14,5 +15,15 @@ public class UserDto {
 
     private String nickname;
 
-    private List<RoleVo> roles;
+    private List<RoleDto> roles;
+
+    private Gender gender;
+
+    private Boolean locked;
+
+    private Boolean enabled;
+
+    private String lastLoginIp;
+
+    private Date lastLoginTime;
 }

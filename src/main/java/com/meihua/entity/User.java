@@ -2,11 +2,12 @@ package com.meihua.entity;
 
 import com.meihua.enums.Gender;
 import lombok.Data;
-import lombok.Generated;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -33,13 +34,18 @@ public class User extends AbstractEntity implements UserDetails {
 
     private Date lastLoginTime;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(name = "roles_id",referencedColumnName = "id"))
     private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        //将role放到 authorities上下文中
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (Role role: roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authorities;
     }
 
     @Override
