@@ -5,9 +5,16 @@ spring:
     name: meihua_music
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://180.76.100.99:3306/music?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://180.76.100.99:3306/music?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
     username: root
     password: 1234
+    hikari:
+      connection-timeout: 600000
+        maximum-pool-size: 500
+        max-lifetime: 1800000
+        minimum-idle: 20
+        validation-timeout: 3000
+        idle-timeout: 60000
   jpa:
     database: mysql
     show-sql: true
@@ -19,3 +26,10 @@ spring:
 
 #  config:
 #    import: optional:file:.env[.yml]
+
+
+#微信小程序
+weixin:
+  mp:
+    app-id: wxd757380b82913aff
+    app-secret: c33e59d4fe83df510f14ec3592d43de7
