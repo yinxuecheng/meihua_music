@@ -1,5 +1,6 @@
 package com.meihua.controller;
 
+import io.swagger.annotations.Api;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 import me.chanjar.weixin.common.bean.oauth2.WxOAuth2AccessToken;
@@ -15,6 +16,7 @@ import javax.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/weixin")
+@Api(tags = "微信接口")
 public class WeiXinController {
 
     @Autowired

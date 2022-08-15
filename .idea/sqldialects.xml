@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V202206151012__create_user_table.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V202206151016__create_role_table.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V202206151029__create_user_role_table.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V202208132230__create_music_table.sql" dialect="MySQL" />
   </component>
 </project>

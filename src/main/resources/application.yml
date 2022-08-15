@@ -8,13 +8,6 @@ spring:
     url: jdbc:mysql://180.76.100.99:3306/music?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
     username: root
     password: 1234
-    hikari:
-      connection-timeout: 600000
-        maximum-pool-size: 500
-        max-lifetime: 1800000
-        minimum-idle: 20
-        validation-timeout: 3000
-        idle-timeout: 60000
   jpa:
     database: mysql
     show-sql: true
