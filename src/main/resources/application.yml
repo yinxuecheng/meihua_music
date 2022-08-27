@@ -26,3 +26,10 @@ weixin:
   mp:
     app-id: wxd757380b82913aff
     app-secret: c33e59d4fe83df510f14ec3592d43de7
+
+#COS-腾讯云存储
+cos:
+  bucket: meihua-music-1313396600
+  secret-id: AKIDtd8MK2TeZDannWy92ey1nIZdQvA7nCKA
+  secret-key: atvf8KErCG2XkgKhnb8NL2SaOu97oEMD
+  region: ap-beijing
